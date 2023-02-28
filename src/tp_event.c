@@ -31,10 +31,22 @@ t_bunny_response key_event(t_bunny_event_state state,
         return (EXIT_ON_SUCCESS);
     if (keycode == BKS_Z) {
         printf("Z key");
-        put_pixel(ds->player, ds->ds_px, WHITE);
         ds->player->y -= 1;
-        printf("%d", ds->player->y);
     }
+    else if (keycode == BKS_S) {
+        printf("S key");
+        ds->player->y += 1;
+    }
+    else if (keycode == BKS_Q) {
+        printf("Q key");
+        ds->player->x -= 1;
+    }
+    else if (keycode == BKS_D) {
+        printf("D key");
+        ds->player->x += 1;
+    }
+    stu_clear_pixelarray(ds->ds_px, PINK2);
+    put_pixel(ds->player, ds->ds_px, WHITE);
     printf("keycode: %d\n", keycode);
     blit_at_origin(ds);
     return (GO_ON);
